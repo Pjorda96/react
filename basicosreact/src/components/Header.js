@@ -6,6 +6,6 @@ const Header = (props) => {
       <h1>{props.titulo}</h1>
     </Header>
   )
-}
+};
 
 export default Header;

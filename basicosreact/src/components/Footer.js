@@ -4,6 +4,6 @@ const Footer = () => {
     return (
         <footer>Todos los derechoos reservados &copy;</footer>
     )
-}
+};
 
 export default Footer;
