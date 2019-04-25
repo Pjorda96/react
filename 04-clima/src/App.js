@@ -28,7 +28,7 @@ class App extends Component{
     const {ciudad, pais} = this.state.consulta;
     if (!ciudad || !pais) return null;
     const appId = '0fc5eb4e8be3da1c011df984b86ae97b';
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&APPID=${appId}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&APPID=${appId}`;
 
     fetch(url)
       .then(respuesta => {
