@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import Header from "./components/Header";
 import Formulario from "./components/Formulario";
 import Eventos from "./components/Eventos";
+import {api} from './Config.json';
 
 class App extends Component {
-  token = 'YBQHR2HHUGCKDXJNRILD';
   state = {
     categorias: [],
     eventos: [],
@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   obtenerCategorias = async () => {
-    let url = `https://www.eventbriteapi.com/v3/categories/?token=${this.token}&locale=es_ES`;
+    let url = `https://www.eventbriteapi.com/v3/categories/?token=${api.token}&locale=es_ES`;
 
     await fetch(url)
       .then(respuesta => {
@@ -30,7 +30,7 @@ class App extends Component {
 
   obtenerEventos = async busqueda => {
     const {nombre, categoria} = busqueda;
-    let url = `https://www.eventbriteapi.com/v3/events/search/?q=${nombre}&sort_by=date&categories=${categoria}&token=${this.token}&locale=es_ES`;
+    let url = `https://www.eventbriteapi.com/v3/events/search/?q=${nombre}&sort_by=date&categories=${categoria}&token=${api.token}&locale=es_ES`;
 
     await fetch(url)
       .then(respuesta => {

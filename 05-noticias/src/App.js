@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Header from "./components/Header";
 import Noticias from "./components/Noticias";
 import Formulario from "./components/Formulario";
+import {api} from './Config.json';
 
 class App extends Component {
 
@@ -14,8 +15,7 @@ class App extends Component {
   }
 
   consultarNoticias = (category='general') => {
-    const key = 'f2c765f2dc5b4052bd46f73141f5e8b4';
-    const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${key}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${api.key}`;
 
     fetch(url)
       .then(respuesta => {
