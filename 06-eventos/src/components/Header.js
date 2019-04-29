@@ -3,16 +3,14 @@ import PropTypes from 'prop-types';
 
 const Header = props => {
   return (
-    <nav>
-      <div className="nav-wrapper light-blue darken-3">
-        <a className="brand-logo center" href="localhost:3000">{props.titulo}</a>
-      </div>
-    </nav>
+    <header className="uk-margin" uk-margin="true">
+      <h1 className="uk-text-center">{props.titulo}</h1>
+    </header>
   )
 };
 
 Header.propTypes = {
-  titulo: PropTypes.string.isRequired
+  titulo: PropTypes.string.isRequired,
 };
 
 export default Header;
