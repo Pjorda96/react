@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Formulario from "./components/Formulario";
 import Error from "./components/Error";
 import Clima from "./components/Clima";
+import {api} from './Config.json';
 
 class App extends Component{
 
@@ -27,8 +28,7 @@ class App extends Component{
   consultarApi = () => {
     const {ciudad, pais} = this.state.consulta;
     if (!ciudad || !pais) return null;
-    const appId = '0fc5eb4e8be3da1c011df984b86ae97b';
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&APPID=${appId}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&APPID=${api.appId}`;
 
     fetch(url)
       .then(respuesta => {
