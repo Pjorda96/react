@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import Buscador from "./components/Buscador";
+import {api} from './Config.json';
 
 class App extends Component {
   render() {
