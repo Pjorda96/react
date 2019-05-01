@@ -34,8 +34,8 @@ class Router extends Component{
   };
 
   render() {
-    let productos = {...this.state.productos};
-    let busqueda = {...this.state.busqueda};
+    let productos = [...this.state.productos];
+    let busqueda = this.state.busqueda;
     let resultado;
 
     if (busqueda !== '') {
