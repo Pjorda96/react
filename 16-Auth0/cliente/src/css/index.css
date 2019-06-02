@@ -37,3 +37,22 @@ h2 {
   color: white;
   text-transform: uppercase;
 }
+
+.contenedor-boton {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+}
+
+.contenedor-boton .boton {
+  padding: .5rem 3rem;
+  background-color: #ffd742;
+  color: black;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+.contenedor-boton .boton:hover {
+  cursor: pointer;
+}
