@@ -8,8 +8,10 @@ import {
 
 import axios from 'axios';
 
+const url = 'http://localhost:5000/productos';
+
 export const mostrarProductos = () => async dispatch => {
-  const respuesta = await axios.get('http://localhost:5000/productos');
+  const respuesta = await axios.get(`${url}`);
 
   dispatch({
     type: MOSTRAR_PRODUCTOS,
@@ -18,7 +20,7 @@ export const mostrarProductos = () => async dispatch => {
 };
 
 export const mostrarProducto = id => async dispatch => {
-  const respuesta = await axios.get(`http://localhost:5000/productos/${id}`);
+  const respuesta = await axios.get(`${url}/${id}`);
 
   dispatch({
     type: MOSTRAR_PRODUCTO,
@@ -27,7 +29,7 @@ export const mostrarProducto = id => async dispatch => {
 };
 
 export const borrarProducto = id => async dispatch => {
-  await axios.delete(`http://localhost:5000/productos/${id}`);
+  await axios.delete(`${url}/${id}`);
 
   dispatch({
     type: BORRAR_PRODUCTO,
@@ -36,7 +38,7 @@ export const borrarProducto = id => async dispatch => {
 };
 
 export const agregarProducto = producto => async dispatch => {
-  const respuesta = await axios.post('http://localhost:5000/productos/', producto);
+  const respuesta = await axios.post(`${url}`, producto);
 
   dispatch({
     type: AGREGAR_PRODUCTO,
@@ -45,7 +47,7 @@ export const agregarProducto = producto => async dispatch => {
 };
 
 export const editarProducto = producto => async dispatch => {
-  const respuesta = await axios.put(`http://localhost:5000/productos/${producto.id}`, producto);
+  const respuesta = await axios.put(`${url}/${producto.id}`, producto);
 
   dispatch({
     type: EDITAR_PRODUCTO,
