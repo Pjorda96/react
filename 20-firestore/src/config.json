@@ -1,0 +1,11 @@
+{
+  "firebaseConfig": {
+    "apiKey": "AIzaSyCMjAUtDbwD6awCyK3nNtNJ7lqsfte5Y-0",
+    "authDomain": "firestorereact-25895.firebaseapp.com",
+    "databaseURL": "https://firestorereact-25895.firebaseio.com",
+    "projectId": "firestorereact-25895",
+    "storageBucket": "firestorereact-25895.appspot.com",
+    "messagingSenderId": "107464975956",
+    "appId": "1:107464975956:web:30a1650ab779fb39"
+  }
+}
