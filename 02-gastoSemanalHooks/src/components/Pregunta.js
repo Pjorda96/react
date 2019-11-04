@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
 function Pregunta(props) {
-  const [cantidad, guardarCantidad] = useState(0)
-  const [error, guardarError] = useState(false)
+  const [cantidad, guardarCantidad] = useState(0);
+  const [error, guardarError] = useState(false);
 
   const validar = e => {
     e.preventDefault();
@@ -11,8 +11,8 @@ function Pregunta(props) {
 
     guardarError(false);
     props.guardarPresupuesto(cantidad);
-    props.guardarPreguntaPresupuesto(true);
-  }
+    props.guardarPreguntaPresupuesto(false);
+  };
 
   return (
     <>

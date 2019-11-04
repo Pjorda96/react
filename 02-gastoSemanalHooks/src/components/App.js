@@ -3,6 +3,7 @@ import Pregunta from './Pregunta';
 
 import '../css/normalize.css';
 import '../css/skeleton.css';
+import Formulario from "./Formulario";
 
 function App() {
   const [presupuesto, guardarPresupuesto] = useState(0);
@@ -21,9 +22,14 @@ function App() {
               guardarPresupuesto={guardarPresupuesto}
               guardarPreguntaPresupuesto={guardarPreguntaPresupuesto}
             />
-            : (
-              <div className="row"></div>
-            )
+            : <div className="row">
+                <div className="one-half column">
+                  <Formulario
+
+                  />
+                </div>
+                <div className="one-half column"></div>
+              </div>
         }
         
       </div>
