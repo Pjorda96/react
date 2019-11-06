@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Error from "./Error";
 
 function Pregunta(props) {
   const [cantidad, guardarCantidad] = useState(0);
@@ -7,10 +8,14 @@ function Pregunta(props) {
   const validar = e => {
     e.preventDefault();
 
-    (!cantidad || cantidad <= 0) && guardarError(true);
+    if (!cantidad || cantidad <= 0 || isNaN(cantidad)) {
+      guardarError(true);
+      return; // mal hecho
+    }
 
     guardarError(false);
     props.guardarPresupuesto(cantidad);
+    props.guardarRestante(cantidad);
     props.guardarPreguntaPresupuesto(false);
   };
 
@@ -19,7 +24,7 @@ function Pregunta(props) {
       <h2>Coloca tu Presupuesto</h2>
 
       {
-        error && <p className="alert alert-danger error">El presupuesto es incorrecto</p>
+        error && <Error mensaje="El presupuesto es incorrecto" />
       }
 
       <form
