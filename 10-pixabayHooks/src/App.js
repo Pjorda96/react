@@ -9,24 +9,24 @@ function App() {
   const [ imagenes, guardarImagenes ] = useState([])
   const [ paginaActual, guardarPaginaActual ] = useState(1)
   const [ totalPaginas, guardarTotalPaginas ] = useState(1)
-
+  
   useEffect(() => {
+    const consultarApi = async () => {
+      const key = '12362900-ab5b5b6af8d671a852c02bf49';
+      const perPage = 30;
+  
+      const url = `https://pixabay.com/api/?key=${key}&q=${busqueda}&per_page=${perPage}&page=${paginaActual}`;
+  
+      const res = busqueda && await axios.get(url);
+      res && guardarImagenes(res.data.hits);
+      res && guardarTotalPaginas(Math.ceil(res.data.totalHits / perPage));
+  
+      const jumbotron = document.querySelector('.jumbotron')
+      jumbotron.scrollIntoView({behavior: 'smooth', block: 'end'});
+    }
+
     consultarApi();
   }, [busqueda, paginaActual])
-
-  const consultarApi = async () => {
-    const key = '12362900-ab5b5b6af8d671a852c02bf49';
-    const perPage = 30;
-
-    const url = `https://pixabay.com/api/?key=${key}&q=${busqueda}&per_page=${perPage}&page=${paginaActual}`;
-
-    const res = busqueda && await axios.get(url);
-    res && guardarImagenes(res.data.hits);
-    res && guardarTotalPaginas(Math.ceil(res.data.totalHits / perPage));
-
-    const jumbotron = document.querySelector('.jumbotron')
-    jumbotron.scrollIntoView({behavior: 'smooth', block: 'end'});
-  }
 
   const paginaAnterior = () => {
     let nuevaPaginaActual = paginaActual > 1 ? paginaActual - 1 : 1;
